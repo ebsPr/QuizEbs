@@ -1,7 +1,7 @@
 var quiz = (function(){
 
     var question = function(req,res){
-        res.render('quizes', { quiz: 'Capital de Italia' });
+        res.render('quizes.ejs', { quiz: 'Capital de Italia' });
     };
 
     var answer = function(req,res){
