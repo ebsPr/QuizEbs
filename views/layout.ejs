@@ -8,18 +8,46 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
+		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	    <link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 	<body>
-		<header><h1>Quiz el juego de preguntas</h1></header>
+		<header><h1>Quiz: el juego de preguntas</h1></header>
+		
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse"
+		            data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Desplegar navegación</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="/">Inicio</a>
+		  </div>
+		 
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">
+		    <ul class="nav navbar-nav">
+		      <li><a href="/quizes/question">preguntas</a></li>
+		      <li><a href="/author">Autores</a></li>
+		    </ul>
+		  </div>
+		</nav>
+
+		
 		<section class="container">
 			<%- body %>
 		</section>
-		<footer>
-			<a href="https://github.com/ebsPr/QuizEbs">enlace github</a>
+
+		<br/>
+
+		<footer class="panel panel-default">
+		 	<div class="panel-body">
+				<a href="https://github.com/ebsPr/QuizEbs">Enlace GitHub</a>
+			</div>
 		</footer>
 	</body>
 	
