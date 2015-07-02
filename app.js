@@ -3,13 +3,16 @@ var config = require('./config.js');
 var path = require('path');
 var routes = require('./routes/index');
 var quiz = require('./controllers/quiz_controllers.js');
+var models = require('./models/models.js');
 
 
 var app = express();
 // módulo de condiguración
 config(app);
-// módulo quiz
+// conexión a bbdd
+models();
 
+// módulo quiz
 app.get('/quizes/question',quiz.question);
 app.get('/quizes/answer',quiz.answer);
 
@@ -45,6 +48,10 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+config.quiz.findAll().success(function(result){
+    console.log('result: ' + result);
 });
 
 
