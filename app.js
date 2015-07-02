@@ -3,7 +3,7 @@ var config = require('./config.js');
 var path = require('path');
 var routes = require('./routes/index');
 var quiz = require('./controllers/quiz_controllers.js');
-var models = require('./models/models.js');
+var models = require('./models/model.js');
 
 
 var app = express();
@@ -49,10 +49,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-config.quiz.findAll().success(function(result){
-    console.log('result: ' + result);
-});
-
 
 module.exports = app;
