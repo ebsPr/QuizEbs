@@ -2,19 +2,19 @@ var express = require('express');
 var config = require('./config.js');
 var path = require('path');
 var routes = require('./routes/index');
-var quiz = require('./controllers/quiz_controllers.js');
 var models = require('./models/model.js');
+var quizController = require('./controllers/quiz_controllers.js')(models.Quiz);
 
 
 var app = express();
 // módulo de condiguración
 config(app);
 // conexión a bbdd
-models();
 
 // módulo quiz
-app.get('/quizes/question',quiz.question);
-app.get('/quizes/answer',quiz.answer);
+app.get('/search',quizController.search);
+app.get('/quizes',quizController.list);
+app.get('/answer',quizController.answer);
 
 
 app.use('/', routes);

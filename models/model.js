@@ -35,21 +35,31 @@ var models = (function(){
 
         var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 
-        //  exports.Quiz = Quiz;
+        //exports.Quiz = Quiz;
 
         sequelize.sync().success(function(){
             Quiz.count().success(function(count){
+                console.log("count: " + count);
                 if(count == 0){
                     Quiz.create(
-                             {pregunta:"Capital de Italia", respuesta: "Roma"}
-                        );
+                        {pregunta:"Capital de Italia", respuesta: "Roma"}
+                    );
+                }else if (count == 1){
+                    Quiz.create(
+                        {pregunta:"Capital de Portugal", respuesta: "Lisboa"}
+                    );
                 }else{
                     console.log("tabla quiz ya inicializada")           
                 }
             });
         });
 
+        return{
+            Quiz:Quiz,
+            Sequelize:sequelize
+        }
+
     }
-);
+)();
 
 module.exports = models;
